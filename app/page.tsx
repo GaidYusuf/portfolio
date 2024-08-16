@@ -12,15 +12,21 @@ export default function Home() {
       >
         <div className="pl-20 md:pl-40 pb-56 md:pb-20 flex flex-col gap-5 z-[10] max-w-[750px]">
           <h1 className="text-[50px] text-white font-semibold">
-          Hello, I'm
+          Hi, I'm
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-red-500">
               {" "}
-              Gaid Yusuf
+              Gaid Yusuf! 👋
             </span>
           </h1>
-            <p className="text-gray-200 hidden md:block mb-4">
-                I specialise in developing dynamic web applications using technologies like Python, Java, and JavaScript. My projects range from replicating popular platforms like Netflix to creating advanced semantic analysis tools for religious texts. With a keen interest in staying at the forefront of technology, I’m always exploring new ways to innovate and solve problems.
-            </p>
+          <p className="text-gray-200 hidden md:block mb-1">
+    Welcome to my portfolio! I'm a passionate computer science graduate with a knack for creating innovative solutions.
+  </p>
+  <p className="text-gray-200 hidden md:block mb-1">
+    When I'm not coding, you'll find me exploring new tech trends, contributing to open-source projects, or enjoying a good challenge in problem-solving. I'm always eager to take on new projects and collaborate with others who share my enthusiasm for technology.
+  </p>
+  <p className="text-gray-200 hidden md:block mb-1">
+    Feel free to explore my work and connect with me—let's build something amazing together!
+  </p>
           <div className="flex-col md:flex-row hidden md:flex gap-5">
             <Link
               href="/my-skills"
