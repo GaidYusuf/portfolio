@@ -83,7 +83,7 @@ export const Projects = [
       "Designed a PostgreSQL database schema to manage movie data, user profiles, and personalised watchlists.",
       "Implemented features such as movie browsing, genre filtering, detailed views, and full-text search.",
     ],
-    src: "/NetflixWebsite.png",
+    src: "/netflix_website.png",
     languages: ["Python", "Django", "HTML", "CSS", "JavaScript", "PostgreSQL"],
   },
   {
@@ -94,7 +94,7 @@ export const Projects = [
       "Developed blink detection to simulate mouse clicks, improving accessibility for users.",
       "Ensured smooth operation by managing webcam input and integrating seamless cursor movement."
     ],
-    src: "/EyeControlledMouse.avif",
+    src: "/eye_controlled_mouse.avif",
     languages: ["Python"],
   },
   {
@@ -106,7 +106,7 @@ export const Projects = [
       "Integrated additional features such as a digital Quran, prayer times, and an Islamic Calendar.",
       "Established a CI/CD pipeline to automate testing and deployment.",
     ],
-    src: "/IslamicWebsite.png",
+    src: "/islamic_website.png",
     languages: ["Python", "Django", "HTML", "CSS", "JavaScript"],
   },
   {
@@ -116,7 +116,7 @@ export const Projects = [
       "Used semantic inference techniques to answer questions, such as identifying capitals (e.g., 'Beijing' for 'China') and finding related words (e.g., 'Computer' to 'Software').",
       "Applied semantic embedding methods to accurately match words and retrieve relevant information within the system.",
     ],
-    src: "/SimilaritySystem.png",
+    src: "/similarity_system.png",
     languages: ["Java"],
   },
 ];
