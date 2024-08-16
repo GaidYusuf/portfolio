@@ -16,12 +16,12 @@ const Navbar = () => {
           /> */}
         </div>
         <h1 className="text-white text-[25px] font-semibold">
-          Gaid's{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-red-500">
-            {" "}
-            Portfolio{" "}
-          </span>
-        </h1>
+  Gaid&apos;s{" "}
+  <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-red-500">
+    {" "}
+    Portfolio{" "}
+  </span>
+</h1>
       </div>
 
       <div className="flex flex-row gap-5 mb-2">

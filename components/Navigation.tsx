@@ -14,18 +14,19 @@ const Navigation = () => {
     if (prevPath !== path) {
       setisRouting(true);
     }
-  }, [path, prevPath]);
-
+  }, [path, prevPath]); // Added prevPath to the dependency array
+  
   useEffect(() => {
     if (isRouting) {
       setPrevPath(path);
       const timeout = setTimeout(() => {
         setisRouting(false);
       }, 1200);
-
+  
       return () => clearTimeout(timeout);
     }
-  }, [isRouting]);
+  }, [isRouting, path]); // Updated dependencies here
+  
   return (
     <div
       style={{ left: "20%" }}
