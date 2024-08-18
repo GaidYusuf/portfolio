@@ -1,5 +1,4 @@
-"use client"; // Add this line at the top of your file
-
+"use client"; 
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 
@@ -11,16 +10,53 @@ const ContactForm = () => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false); // Track if form is submitted
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    message: "",
+  }); // Track validation errors
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    setErrors({ ...errors, [name]: "" }); // Clear error message when user starts typing
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // Validation checks
+    let hasErrors = false;
+    const newErrors = { name: "", email: "", message: "" };
+
+    if (!formData.name) {
+      newErrors.name = "Name is required.";
+      hasErrors = true;
+    }
+    if (!formData.email) {
+      newErrors.email = "Email is required.";
+      hasErrors = true;
+    } else {
+      // Optional: Email validation regex
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(formData.email)) {
+        newErrors.email = "Please enter a valid email address.";
+        hasErrors = true;
+      }
+    }
+    if (!formData.message) {
+      newErrors.message = "Message is required.";
+      hasErrors = true;
+    }
+
+    if (hasErrors) {
+      setErrors(newErrors);
+      return;
+    }
+
+    // Proceed with sending the email if validation passes
     emailjs
       .send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
@@ -38,7 +74,6 @@ const ContactForm = () => {
         setFormData({ name: "", email: "", message: "" });
       })
       .catch((error) => {
-        // Handle errors if needed
         console.error("Error sending message:", error);
       });
   };
@@ -55,16 +90,18 @@ const ContactForm = () => {
           onChange={handleChange}
           className="w-full px-4 py-3 text-sm text-black placeholder-gray-400 bg-white border-0 rounded shadow"
         />
+        {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
       </div>
       <div className="mb-4">
         <input
           type="email"
-          placeholder="Your email"
+          placeholder="Your Email"
           name="email"
           value={formData.email}
           onChange={handleChange}
           className="w-full px-4 py-3 text-sm text-black placeholder-gray-400 bg-white border-0 rounded shadow"
         />
+        {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
       </div>
       <div className="mb-4">
         <textarea
@@ -74,10 +111,10 @@ const ContactForm = () => {
           onChange={handleChange}
           className="w-full px-4 py-3 text-sm text-black placeholder-gray-400 bg-white border-0 rounded shadow h-32 resize-none"
         />
+        {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
       </div>
       <button
         type="submit"
-        disabled={isSubmitted} // Disable button if form is submitted
         className={`px-6 py-3 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear ${
           isSubmitted
             ? "bg-green-500 hover:bg-green-400 cursor-not-allowed"
