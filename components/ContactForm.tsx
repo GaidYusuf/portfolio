@@ -59,7 +59,7 @@ const ContactForm = () => {
       <div className="mb-4">
         <input
           type="email"
-          placeholder="Your Email"
+          placeholder="Your email"
           name="email"
           value={formData.email}
           onChange={handleChange}
