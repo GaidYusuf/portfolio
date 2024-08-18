@@ -94,7 +94,7 @@ export const Projects = [
       "Developed blink detection to simulate mouse clicks, improving accessibility for users.",
       "Ensured smooth operation by managing webcam input and integrating seamless cursor movement."
     ],
-    src: "/eye_controlled_mouse.avif",
+    src: "/eye_controlled_mouse.png",
     languages: ["Python"],
   },
   {
